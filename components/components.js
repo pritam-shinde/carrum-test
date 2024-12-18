@@ -1,8 +1,7 @@
 export { default as Header } from './layout/header/Header';
 export { default as Footer } from './layout/footer/Footer';
 export { default as SocialIcons } from './SocialIcons/SocialIcons';
-export { default as BlueFilledBtn } from './custom-buttons/BlueFilledBtn/BlueFilledBtn';
-export { default as KnowMoreBtn } from './custom-buttons/KnowMoreBtn/KnowMoreBtn';
+export { default as BlueFilledBtn } from './custom-buttons/BlueFilledBtn/BlueFilledBtn'; 
 export { default as BlueOulinedBtn } from './custom-buttons/BlueOulinedBtn/BlueOulinedBtn';
 export { default as IconBtn } from './custom-buttons/IconBtn/IconBtn';
 export { default as CustomCard } from './CustomCard/CustomCard';

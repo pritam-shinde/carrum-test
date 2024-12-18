@@ -21,8 +21,10 @@ const Header = () => {
       const handleScroll = () => {
         if (window.scrollY > 50 && isDesktop) {
           setIsScrolled(true);
-        } else {
+        } else if (window.scrollY <= 50 && isDesktop) {
           setIsScrolled(false);
+        } else if (!isDesktop && window.scrollY > 0) {
+          setIsScrolled(true);
         }
       };
 
@@ -30,6 +32,21 @@ const Header = () => {
       return () => window.removeEventListener('scroll', handleScroll);
     }
   }, [isDesktop]);
+
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const handleScroll = () => {
+  //       if (window.scrollY > 50 && isDesktop) {
+  //         setIsScrolled(true);
+  //       } else {
+  //         setIsScrolled(false);
+  //       }
+  //     };
+
+  //     window.addEventListener('scroll', handleScroll);
+  //     return () => window.removeEventListener('scroll', handleScroll);
+  //   }
+  // }, [isDesktop]);
 
   return (
     <header className={`${Styles.header} ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}} `}>
@@ -71,22 +88,22 @@ export default Header;
 //     }
 //   }, []);
 
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       const handleScroll = () => {
-//         const headerStyle = document.querySelector('header').style;
+// useEffect(() => {
+//   if (typeof window !== 'undefined') {
+//     const handleScroll = () => {
+//       const headerStyle = document.querySelector('header').style;
 
-//         if (window.scrollY > 50 && isDesktop) {
-//           headerStyle.backgroundColor = '#fff';
-//           headerStyle.boxShadow = '0 1rem 3rem rgba(0, 0, 0, 0.175)';
-//         } else if (window.scrollY <= 50 && isDesktop) {
-//           headerStyle.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-//           headerStyle.boxShadow = 'none';
-//         } else if (!isDesktop && window.scrollY > 0) {
-//           headerStyle.backgroundColor = '#fff';
-//           headerStyle.boxShadow = '0 1rem 3rem rgba(0, 0, 0, 0.175)';
-//         }
-//       };
+//       if (window.scrollY > 50 && isDesktop) {
+//         headerStyle.backgroundColor = '#fff';
+//         headerStyle.boxShadow = '0 1rem 3rem rgba(0, 0, 0, 0.175)';
+//       } else if (window.scrollY <= 50 && isDesktop) {
+//         headerStyle.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+//         headerStyle.boxShadow = 'none';
+//       } else if (!isDesktop && window.scrollY > 0) {
+//         headerStyle.backgroundColor = '#fff';
+//         headerStyle.boxShadow = '0 1rem 3rem rgba(0, 0, 0, 0.175)';
+//       }
+//     };
 
 //       window.addEventListener('scroll', handleScroll);
 //       return () => window.removeEventListener('scroll', handleScroll);
